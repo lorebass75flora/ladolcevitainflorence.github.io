@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Dolce Vita in Florence | Swing & Jazz Italian Band</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#FDFBF7',      /* Crema avorio chiarissimo */
+                            card: '#F5F0E6',    /* Beige leggero e setoso per i blocchi */
+                            text: '#2D241E',    /* Caffè espresso profondo (no nero) */
+                            muted: '#6B5E53',   /* Tortora caldo per i testi descrittivi */
+                            gold: '#C5A059',    /* Oro champagne satinato (no arancione) */
+                            goldDark: '#9E7E45',/* Oro scuro per contrasti definiti */
+                            border: '#EAE3D2'   /* Bordo morbido color sabbia */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hidden-lang { display: none !important; }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans antialiased">
+
+    <!-- Header / Navigazione -->
+    <header class="fixed w-full z-50 bg-brand-bg/90 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-serif text-xl md:text-2xl tracking-widest text-brand-goldDark font-semibold uppercase">
+                La Dolce Vita
+            </a>
+            
+            <!-- Menu di Navigazione (Bilingue) -->
+            <nav class="hidden lg:flex space-x-6 text-xs tracking-wider uppercase font-semibold text-brand-muted">
+                <a href="#about" class="hover:text-brand-gold transition">
+                    <span class="lang-it">La Band</span><span class="lang-en hidden-lang">The Band</span>
+                </a>
+                <a href="#formazioni" class="hover:text-brand-gold transition">
+                    <span class="lang-it">Formazioni</span><span class="lang-en hidden-lang">Line-ups</span>
+                </a>
+                <a href="#volumi" class="hover:text-brand-gold transition">
+                    <span class="lang-it">Volumi</span><span class="lang-en hidden-lang">Volume</span>
+                </a>
+                <a href="#repertorio" class="hover:text-brand-gold transition">
+                    <span class="lang-it">Repertorio</span><span class="lang-en hidden-lang">Repertoire</span>
+                </a>
+                <a href="#strumenti" class="hover:text-brand-gold transition">
+                    <span class="lang-it">Strumenti</span><span class="lang-en hidden-lang">Instruments</span>
+                </a>
+                <a href="#video" class="hover:text-brand-gold transition">
+                    <span class="lang-it">Video</span><span class="lang-en hidden-lang">Video</span>
+                </a>
+                <a href="#galleria" class="hover:text-brand-gold transition">
+                    <span class="lang-it">Galleria</span><span class="lang-en hidden-lang">Gallery</span>
+                </a>
+                <a href="#preventivo" class="hover:text-brand-gold transition">
+                    <span class="lang-it">Preventivo</span><span class="lang-en hidden-lang">Quote</span>
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-4 md:gap-6">
+                <!-- Selettore Lingua Elegante -->
+                <div class="flex items-center border border-brand-border rounded-full px-3 py-1 bg-brand-card text-[11px] font-bold tracking-wider">
+                    <button id="btn-it" onclick="changeLanguage('it')" class="text-brand-goldDark px-1.5 py-0.5 transition hover:text-brand-text">IT</button>
+                    <span class="text-brand-border px-1">|</span>
+                    <button id="btn-en" onclick="changeLanguage('en')" class="text-brand-muted px-1.5 py-0.5 transition hover:text-brand-text">EN</button>
+                </div>
+
+                <a href="https://www.instagram.com/the_swing_band_in_florence_/" target="_blank" class="text-brand-muted hover:text-brand-gold transition text-lg" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#preventivo" class="bg-brand-gold text-brand-bg hover:bg-brand-goldDark text-[10px] uppercase font-bold px-4 py-2.5 tracking-widest transition rounded-full shadow-sm">
+                    <span class="lang-it">Contattaci</span><span class="lang-en hidden-lang">Book Now</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(to bottom, rgba(253,251,247,0.45), rgba(253,251,247,0.92)), url('camirosa1.jpg');">
+        <div class="text-center px-4 max-w-4xl mx-auto mt-16">
+            <span class="text-brand-goldDark font-serif italic text-xl md:text-3xl block mb-2 tracking-wide">Florence, Italy</span>
+            
+            <h1 class="font-serif text-5xl md:text-8xl font-medium tracking-tight mb-4 leading-none text-brand-text">
+                La Dolce Vita <br class="hidden md:block"> <span class="font-light italic">in Florence</span>
+            </h1>
+            
+            <p class="text-brand-muted tracking-widest uppercase text-xs md:text-sm font-semibold mb-10 max-w-2xl mx-auto">
+                <span class="lang-it">La Tua Swing & Jazz Italian Band Per Eventi Esclusivi</span>
+                <span class="lang-en hidden-lang">Your Swing & Jazz Italian Band for Exclusive Events</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#formazioni" class="border border-brand-goldDark text-brand-goldDark hover:bg-brand-gold hover:text-brand-bg px-8 py-3 text-xs uppercase tracking-widest font-semibold transition rounded-sm">
+                    <span class="lang-it">Le Formazioni</span><span class="lang-en hidden-lang">Line-ups</span>
+                </a>
+                <a href="#preventivo" class="bg-brand-text text-brand-bg hover:bg-brand-goldDark px-8 py-3 text-xs uppercase tracking-widest font-semibold transition rounded-sm shadow-md">
+                    <span class="lang-it">Richiedi Preventivo</span><span class="lang-en hidden-lang">Get a Quote</span>
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-brand-muted">
+            <a href="#about"><i class="fa-solid fa-chevron-down text-xl"></i></a>
+        </div>
+    </section>
+
+    <!-- La Band Section -->
+    <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <span class="text-brand-goldDark font-serif italic text-xl block mb-2">
+                    <span class="lang-it">Chi Siamo</span><span class="lang-en hidden-lang">About Us</span>
+                </span>
+                <h2 class="font-serif text-4xl md:text-5xl font-medium mb-8 text-brand-text leading-tight">
+                    <span class="lang-it">La colonna sonora dell'eleganza italiana</span>
+                    <span class="lang-en hidden-lang">The Soundtrack of Italian Elegance</span>
+                </h2>
+                <div class="space-y-6 text-brand-muted text-sm md:text-base leading-relaxed">
+                    <div class="lang-it space-y-4">
+                        <p>
+                            <strong>La Dolce Vita in Florence</strong> porta il fascino caldo, raffinato e spensierato della musica retrò italiana nei palcoscenici degli eventi più prestigiosi. La nostra proposta musicale unisce la maestria del jazz acustico alla vivacità travolgente del repertorio swing degli anni '50 e '60.
+                        </p>
+                        <p>
+                            Con una presenza scenica curata nei minimi dettagli e un sound morbido, ricreiamo quell'atmosfera sognante e sofisticata che caratterizza la vera "Dolce Vita".
+                        </p>
+                    </div>
+                    <div class="lang-en hidden-lang space-y-4">
+                        <p>
+                            <strong>La Dolce Vita in Florence</strong> brings the warm, sophisticated, and carefree charm of vintage Italian music to the stages of the most prestigious events. Our musical proposal blends the mastery of acoustic jazz with the high-energy romance of the 1950s and 60s Italian swing repertoire.
+                        </p>
+                        <p>
+                            With a carefully designed stage presence and a velvet sound, we recreate the dreamy and sophisticated atmosphere that defines the authentic "Dolce Vita" lifestyle.
+                        </p>
+                    </div>
+                    <p class="border-l-2 border-brand-gold/60 pl-4 italic text-brand-text">
+                        <span class="lang-it">Un'esibizione acustica d'eccellenza, ideata per matrimoni di lusso, cene di gala ed eventi privati esclusivi in Toscana e nel mondo.</span>
+                        <span class="lang-en hidden-lang">An exquisite acoustic performance designed for luxury weddings, high-end gala dinners, and private boutique events in Tuscany and across the globe.</span>
+                    </p>
+                </div>
+            </div>
+            <!-- Foto: cami pasticc.jpg -->
+            <div class="relative group overflow-hidden border border-brand-border shadow-md bg-brand-card p-3 rounded-lg">
+                <img src="cami pasticc.jpg" alt="Afternoon Radiance at the Pasticceria" class="w-full object-cover h-[450px] transition duration-500 group-hover:scale-[1.02] rounded-md">
+                <div class="absolute bottom-6 left-6 bg-brand-bg/95 backdrop-blur px-4 py-2.5 rounded text-xs text-brand-muted border border-brand-border shadow-sm">
+                    <span class="font-serif italic text-brand-goldDark">Afternoon Radiance</span> in Florence
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Le Formazioni Section -->
+    <section id="formazioni" class="py-24 bg-brand-card px-6 border-y border-brand-border">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-goldDark font-serif italic text-xl block mb-2">Line-ups</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-medium text-brand-text">
+                    <span class="lang-it">Le Nostre Formazioni</span><span class="lang-en hidden-lang">Our Formations</span>
+                </h2>
+                <p class="text-brand-muted text-sm max-w-lg mx-auto mt-2">
+                    <span class="lang-it">Combinazioni strumentali flessibili studiate per sposarsi alla perfezione con l'acustica e la scenografia del vostro evento.</span>
+                    <span class="lang-en hidden-lang">Flexible instrumental combinations designed to perfectly match the acoustics and scenery of your venue.</span>
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Duo -->
+                <div class="bg-brand-bg p-8 border border-brand-border hover:border-brand-gold transition duration-300 flex flex-col justify-between shadow-sm rounded">
+                    <div>
+                        <div class="text-brand-goldDark text-4xl mb-4 font-serif italic">01</div>
+                        <h3 class="font-serif text-2xl font-semibold mb-3">Duo</h3>
+                        <p class="text-brand-muted text-xs md:text-sm leading-relaxed mb-6">
+                            <span class="lang-it">Sottile, intimo, di classe straordinaria. La soluzione ideale per un cocktail di benvenuto sussurrato ed elegante, o per spazi raccolti.</span>
+                            <span class="lang-en hidden-lang">Subtle, intimate, and extraordinarily classy. The ideal choice for a soft, elegant welcome cocktail or cozy acoustic spaces.</span>
+                        </p>
+                    </div>
+                    <span class="text-brand-goldDark text-[10px] font-bold tracking-widest uppercase block border-t border-brand-border pt-4">
+                        <span class="lang-it">Chitarra + Voce <br>oppure Chitarra + Clarinetto</span>
+                        <span class="lang-en hidden-lang">Guitar + Vocals <br>or Guitar + Clarinet</span>
+                    </span>
+                </div>
+
+                <!-- Trio -->
+                <div class="bg-brand-bg p-8 border border-brand-border hover:border-brand-gold transition duration-300 flex flex-col justify-between shadow-sm rounded">
+                    <div>
+                        <div class="text-brand-goldDark text-4xl mb-4 font-serif italic">02</div>
+                        <h3 class="font-serif text-2xl font-semibold mb-3">Trio</h3>
+                        <p class="text-brand-muted text-xs md:text-sm leading-relaxed mb-6">
+                            <span class="lang-it">L'equilibrio perfetto. Una presenza acustica calda e definita, ideale per accompagnare con discrezione un banchetto di gala o un aperitivo dinamico.</span>
+                            <span class="lang-en hidden-lang">The perfect balance. A warm and defined acoustic presence, ideal for discreetly accompanying a gala banquet or a dynamic cocktail.</span>
+                        </p>
+                    </div>
+                    <span class="text-brand-goldDark text-[10px] font-bold tracking-widest uppercase block border-t border-brand-border pt-4">
+                        <span class="lang-it">Voce + Chitarra + Contrabbasso <br>oppure Contrabbasso + Chitarra + Sax/Clarinetto</span>
+                        <span class="lang-en hidden-lang">Vocals + Guitar + Double Bass <br>or Double Bass + Guitar + Sax/Clarinet</span>
+                    </span>
+                </div>
+
+                <!-- Quartetto -->
+                <div class="bg-brand-bg p-8 border border-brand-border hover:border-brand-gold transition duration-300 flex flex-col justify-between shadow-sm rounded">
+                    <div>
+                        <div class="text-brand-goldDark text-4xl mb-4 font-serif italic">03</div>
+                        <h3 class="font-serif text-2xl font-semibold mb-3">Quartetto</h3>
+                        <p class="text-brand-muted text-xs md:text-sm leading-relaxed mb-6">
+                            <span class="lang-it">Dinamismo melodico e swing trascinante. Lo strumento a fiato dialoga con la voce per creare un'energia d'altri tempi e un ritmo più vivace.</span>
+                            <span class="lang-en hidden-lang">Melodic dynamism and captivating swing. The wind instrument dialogues with the vocals to create an old-world energy and a livelier beat.</span>
+                        </p>
+                    </div>
+                    <span class="text-brand-goldDark text-[10px] font-bold tracking-widest uppercase block border-t border-brand-border pt-4">
+                        <span class="lang-it">Voce + Chitarra + Contrabbasso + Sax/Clarinetto</span>
+                        <span class="lang-en hidden-lang">Vocals + Guitar + Double Bass + Sax/Clarinet</span>
+                    </span>
+                </div>
+
+                <!-- Quintetto -->
+                <div class="bg-brand-bg p-8 border border-brand-border hover:border-brand-gold transition duration-300 flex flex-col justify-between shadow-sm rounded">
+                    <div>
+                        <div class="text-brand-goldDark text-4xl mb-4 font-serif italic">04</div>
+                        <h3 class="font-serif text-2xl font-semibold mb-3">Quintetto</h3>
+                        <p class="text-brand-muted text-xs md:text-sm leading-relaxed mb-6">
+                            <span class="lang-it">L'esperienza concertistica completa. Una straordinaria ricchezza d'immagine e di suono che invita gli ospiti a ballare, sognare e divertirsi.</span>
+                            <span class="lang-en hidden-lang">The complete concert experience. An extraordinary richness of image and sound that invites guests to dance, dream, and enjoy.</span>
+                        </p>
+                    </div>
+                    <span class="text-brand-goldDark text-[10px] font-bold tracking-widest uppercase block border-t border-brand-border pt-4">
+                        <span class="lang-it">Voce + Chitarra + Contrabbasso + Sax/Clarinetto + Tromba</span>
+                        <span class="lang-en hidden-lang">Vocals + Guitar + Double Bass + Sax/Clarinet + Trumpet</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Gestione Volumi / Volume Management -->
+    <section id="volumi" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="bg-brand-card border border-brand-border rounded-xl p-8 md:p-16 shadow-sm">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-16 items-center">
+                <div class="md:col-span-4 text-center md:text-left border-b md:border-b-0 md:border-r border-brand-border pb-8 md:pb-0 md:pr-8">
+                    <span class="text-brand-goldDark font-serif italic text-xl block mb-2">Acoustic Elegance</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-semibold text-brand-text leading-tight">
+                        <span class="lang-it">La Gestione dei Volumi</span>
+                        <span class="lang-en hidden-lang">Volume Management</span>
+                    </h2>
+                    <div class="text-brand-gold text-4xl mt-6 hidden md:block">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                </div>
+                <div class="md:col-span-8 text-brand-muted text-sm md:text-base leading-relaxed space-y-6">
+                    <div class="lang-it space-y-4">
+                        <p>
+                            Negli eventi d'élite, **il volume della musica è un tassello fondamentale per la perfetta riuscita della serata**. Sappiamo che durante il cocktail di benvenuto e la cena il vero protagonista deve essere la conversazione dei vostri ospiti. 
+                        </p>
+                        <p>
+                            Per questo motivo, **gestiamo i volumi in modo sartoriale**: offriamo un sound acustico morbido, vellutato e discreto che funge da perfetto tappeto sonoro. Quando l'evento si sposta verso la fase di festa e ballo, aumentiamo l'energia e la dinamica della performance, mantenendo sempre un suono limpido, piacevole e mai invasivo.
+                        </p>
+                    </div>
+                    <div class="lang-en hidden-lang space-y-4">
+                        <p>
+                            In elite events, **music volume is a key element for the perfect success of the evening**. We deeply understand that during welcome drinks and dinners, the true focal point must be your guests' conversations.
+                        </p>
+                        <p>
+                            Because of this, **we manage our volumes with bespoke care**: providing a soft, warm, and discrete acoustic sound that acts as the perfect atmospheric background. When the event transitions into the party and dancing phase, we elevate the energy and dynamics of our performance, always ensuring a crystal-clear, pleasant sound that never overwhelms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Repertorio Section -->
+    <section id="repertorio" class="py-24 bg-brand-card border-y border-brand-border px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-goldDark font-serif italic text-xl block mb-2">The Setlist</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-medium text-brand-text">
+                    <span class="lang-it">Il Nostro Repertorio</span><span class="lang-en hidden-lang">Our Repertoire</span>
+                </h2>
+                <p class="text-brand-muted text-sm max-w-xl mx-auto mt-2">
+                    <span class="lang-it">Un viaggio raffinato che unisce il sapore della tradizione retrò italiana all'eleganza immortale del jazz e dello swing americano.</span>
+                    <span class="lang-en hidden-lang">A refined journey blending the sweet flavour of Italian retro classics with the immortal elegance of American jazz and swing.</span>
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Colonna 1: Classici Italiani -->
+                <div class="bg-brand-bg p-8 border border-brand-border rounded-lg shadow-sm">
+                    <h3 class="font-serif text-2xl font-semibold text-brand-goldDark mb-6 pb-2 border-b border-brand-border flex items-center gap-2">
+                        <i class="fa-solid fa-heart text-sm"></i> Italian Retrò
+                    </h3>
+                    <ul class="space-y-3 text-sm text-brand-muted">
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Via con me</span> <span class="italic text-xs font-serif">Paolo Conte</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Nel blu dipinto di blu</span> <span class="italic text-xs font-serif">Domenico Modugno</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Buonasera Signorina</span> <span class="italic text-xs font-serif">Fred Buscaglione</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>I found my love in Portofino</span> <span class="italic text-xs font-serif">Fred Buscaglione</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Un bacio a mezzanotte</span> <span class="italic text-xs font-serif">Quartetto Cetra</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Mille lire al mese</span> <span class="italic text-xs font-serif">Gilberto Mazzi</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>In cerca di te</span> <span class="italic text-xs font-serif">Natalino Otto</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Baciami, Piccina</span> <span class="italic text-xs font-serif">Alberto Rabagliati</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Bellezza in bicicletta</span> <span class="italic text-xs font-serif">Silvana Pampanini</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Parlami d'amore Mariù</span> <span class="italic text-xs font-serif">Vittorio De Sica</span></li>
+                    </ul>
+                </div>
+
+                <!-- Colonna 2: Jazz Standards -->
+                <div class="bg-brand-bg p-8 border border-brand-border rounded-lg shadow-sm">
+                    <h3 class="font-serif text-2xl font-semibold text-brand-goldDark mb-6 pb-2 border-b border-brand-border flex items-center gap-2">
+                        <i class="fa-solid fa-music text-sm"></i> Great American Songbook
+                    </h3>
+                    <ul class="space-y-3 text-sm text-brand-muted">
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Fly Me To The Moon</span> <span class="italic text-xs font-serif">Bart Howard</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Cheek To Cheek</span> <span class="italic text-xs font-serif">Irving Berlin</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Night And Day</span> <span class="italic text-xs font-serif">Cole Porter</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Summertime</span> <span class="italic text-xs font-serif">G. Gershwin</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>All Of Me</span> <span class="italic text-xs font-serif">Gerald Marks</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>A Foggy Day</span> <span class="italic text-xs font-serif">George Gershwin</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>At Last</span> <span class="italic text-xs font-serif">Harry Warren</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Autumn Leaves</span> <span class="italic text-xs font-serif">Joseph Kosma</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>I've Got You Under My Skin</span> <span class="italic text-xs font-serif">Cole Porter</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Dream A Little Dream Of Me</span> <span class="italic text-xs font-serif">Gus Kahn</span></li>
+                    </ul>
+                </div>
+
+                <!-- Colonna 3: Smooth Bossa & Atmospheres -->
+                <div class="bg-brand-bg p-8 border border-brand-border rounded-lg shadow-sm">
+                    <h3 class="font-serif text-2xl font-semibold text-brand-goldDark mb-6 pb-2 border-b border-brand-border flex items-center gap-2">
+                        <i class="fa-solid fa-wind text-sm"></i> Bossa & Atmospheres
+                    </h3>
+                    <ul class="space-y-3 text-sm text-brand-muted">
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Garota de Ipanema</span> <span class="italic text-xs font-serif">A.C. Jobim</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Agua De Beber</span> <span class="italic text-xs font-serif">A.C. Jobim</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>La Vie En Rose</span> <span class="italic text-xs font-serif">Edith Piaf</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Misty</span> <span class="italic text-xs font-serif">Erroll Garner</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Moon River</span> <span class="italic text-xs font-serif">Henry Mancini</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>My Funny Valentine</span> <span class="italic text-xs font-serif">Richard Rodgers</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Over The Rainbow</span> <span class="italic text-xs font-serif">Harold Arlen</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Petit fleur</span> <span class="italic text-xs font-serif">Sidney Bechet</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Caravan</span> <span class="italic text-xs font-serif">Duke Ellington</span></li>
+                        <li class="flex justify-between border-b border-brand-border/40 pb-1"><span>Why Don't You Do Right?</span> <span class="italic text-xs font-serif">Kansas Joe McCoy</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gli Strumenti Section -->
+    <section id="strumenti" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="order-2 md:order-1 relative border border-brand-border p-3 rounded-lg bg-brand-card shadow-md">
+                <!-- Foto: gioclarinet.jpg -->
+                <img src="gioclarinet.jpg" alt="Clarinet Player in Florence" class="w-full object-cover h-[450px] rounded-md">
+            </div>
+            <div class="order-1 md:order-2">
+                <span class="text-brand-goldDark font-serif italic text-xl block mb-2">The Sound</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-medium mb-8 text-brand-text">
+                    <span class="lang-it">Gli Strumenti</span><span class="lang-en hidden-lang">The Instruments</span>
+                </h2>
+                <p class="text-brand-muted text-sm md:text-base leading-relaxed mb-8">
+                    <span class="lang-it">La scelta e la cura strumentale definiscono l'eleganza del nostro stile acustico, evocando le calde sonorità vintage con tocco vellutato e brillante.</span>
+                    <span class="lang-en hidden-lang">The choice and care of our instruments define the elegance of our acoustic style, evoking warm vintage sounds with a velvety and bright touch.</span>
+                </p>
+                
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4">
+                        <span class="text-brand-gold text-2xl mt-0.5"><i class="fa-solid fa-microphone-lines"></i></span>
+                        <div>
+                            <strong class="text-brand-text text-base font-semibold block mb-1 font-serif">
+                                <span class="lang-it">Voce</span><span class="lang-en hidden-lang">Vocals</span>
+                            </strong>
+                            <p class="text-brand-muted text-xs md:text-sm">
+                                <span class="lang-it">Calda, espressiva, capace di interpretare lo swing italo-americano con uno storytelling accattivante.</span>
+                                <span class="lang-en hidden-lang">Warm, expressive, and tailored to deliver the storytelling of Italian-American swing.</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-brand-gold text-2xl mt-0.5"><i class="fa-solid fa-guitar"></i></span>
+                        <div>
+                            <strong class="text-brand-text text-base font-semibold block mb-1 font-serif">
+                                <span class="lang-it">Chitarra & Contrabbasso</span><span class="lang-en hidden-lang">Guitar & Double Bass</span>
+                            </strong>
+                            <p class="text-brand-muted text-xs md:text-sm">
+                                <span class="lang-it">Il pulsare costante del ritmo swing, una trama armonica densa, sofisticata e completamente acustica.</span>
+                                <span class="lang-en hidden-lang">The constant pulse of the swing beat, a dense, sophisticated, and completely acoustic harmonic structure.</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-brand-gold text-2xl mt-0.5"><i class="fa-solid fa-music"></i></span>
+                        <div>
+                            <strong class="text-brand-text text-base font-semibold block mb-1 font-serif">
+                                <span class="lang-it">Sax & Clarinetto (Stesso Musicista)</span><span class="lang-en hidden-lang">Sax & Clarinet (Same Musician)</span>
+                            </strong>
+                            <p class="text-brand-muted text-xs md:text-sm">
+                                <span class="lang-it">Un formidabile polistrumentista che unisce l'energia dinamica del sassofono alle dolci e nostalgiche melodie del clarinetto retrò.</span>
+                                <span class="lang-en hidden-lang">A formidable multi-instrumentalist who blends the dynamic energy of the saxophone with the sweet, nostalgic melodies of the vintage clarinet.</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-brand-gold text-2xl mt-0.5"><i class="fa-solid fa-drum"></i></span>
+                        <div>
+                            <strong class="text-brand-text text-base font-semibold block mb-1 font-serif">
+                                <span class="lang-it">Tromba</span><span class="lang-en hidden-lang">Trumpet</span>
+                            </strong>
+                            <p class="text-brand-muted text-xs md:text-sm">
+                                <span class="lang-it">La brillantezza e l'anima solista del jazz che illumina i momenti più intensi e vivaci dello spettacolo.</span>
+                                <span class="lang-en hidden-lang">The brilliance and solo soul of jazz that illuminates the most intense and lively moments of the performance.</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Video Live / Live Videos -->
+    <section id="video" class="py-24 bg-brand-card border-y border-brand-border px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-goldDark font-serif italic text-xl block mb-2">Watch & Listen</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-medium text-brand-text">
+                    <span class="lang-it">Video Live</span><span class="lang-en hidden-lang">Live Videos</span>
+                </h2>
+                <p class="text-brand-muted text-sm max-w-lg mx-auto mt-2">
+                    <span class="lang-it">Ascolta l'emozione ed il calore delle nostre esibizioni live a Firenze e nei contesti storici più belli.</span>
+                    <span class="lang-en hidden-lang">Listen to the emotion and warmth of our live performances in Florence and beautiful historical venues.</span>
+                </p>
+            </div>
+
+            <!-- Griglia dei Video -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Video 1 -->
+                <div class="border border-brand-border p-3 rounded-xl bg-brand-bg shadow-md">
+                    <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-md bg-stone-900">
+                        <!-- COMMENTO: Per inserire il tuo video di YouTube, sostituisci il link src sotto -->
+                        <iframe class="absolute top-0 left-0 w-full h-full" 
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="La Dolce Vita Live Video 1" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="mt-4 px-2">
+                        <h3 class="font-serif text-lg font-semibold text-brand-text">
+                            <span class="lang-it">Live Session a Firenze</span>
+                            <span class="lang-en hidden-lang">Live Session in Florence</span>
+                        </h3>
+                        <p class="text-brand-muted text-xs mt-1">
+                            <span class="lang-it">Una selezione di classici swing italiani ed internazionali.</span>
+                            <span class="lang-en hidden-lang">A selection of Italian and international swing classics.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="border border-brand-border p-3 rounded-xl bg-brand-bg shadow-md">
+                    <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-md bg-stone-900">
+                        <!-- COMMENTO: Per inserire il tuo video di YouTube, sostituisci il link src sotto -->
+                        <iframe class="absolute top-0 left-0 w-full h-full" 
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="La Dolce Vita Live Video 2" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="mt-4 px-2">
+                        <h3 class="font-serif text-lg font-semibold text-brand-text">
+                            <span class="lang-it">Matrimonio Esclusivo in Toscana</span>
+                            <span class="lang-en hidden-lang">Exclusive Wedding in Tuscany</span>
+                        </h3>
+                        <p class="text-brand-muted text-xs mt-1">
+                            <span class="lang-it">L'atmosfera raffinata dell'aperitivo acustico in una dimora storica.</span>
+                            <span class="lang-en hidden-lang">The refined atmosphere of our acoustic cocktail session in a historic villa.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galleria Section (Aggiornata con 5 Colonne) -->
+    <section id="galleria" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-brand-goldDark font-serif italic text-xl block mb-2">Visual Diary</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-medium text-brand-text">
+                <span class="lang-it">Galleria Fotografica</span><span class="lang-en hidden-lang">Gallery</span>
+            </h2>
+            <p class="text-brand-muted text-sm max-w-lg mx-auto mt-2">
+                <span class="lang-it">Scatti d'atmosfera dei nostri musicisti in contesti storici ed eleganti esibizioni.</span>
+                <span class="lang-en hidden-lang">Atmospheric shots of our musicians in historic contexts and elegant performances.</span>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <!-- Foto 1: caminero cap.jpg -->
+            <div class="border border-brand-border p-2 rounded bg-brand-card shadow-sm hover:shadow-md transition duration-300">
+                <img src="caminero cap.jpg" alt="Florence Duomo Portrait" class="w-full object-cover h-64 rounded-sm">
+                <p class="text-[10px] uppercase font-bold text-brand-muted mt-3 text-center tracking-wider">
+                    <span class="lang-it">Passeggiata a Firenze</span><span class="lang-en hidden-lang">Florence Elegance</span>
+                </p>
+            </div>
+            <!-- Foto 2: camirosa1.jpg -->
+            <div class="border border-brand-border p-2 rounded bg-brand-card shadow-sm hover:shadow-md transition duration-300">
+                <img src="camirosa1.jpg" alt="Live Singing Performance" class="w-full object-cover h-64 rounded-sm">
+                <p class="text-[10px] uppercase font-bold text-brand-muted mt-3 text-center tracking-wider">
+                    <span class="lang-it">Canto Live</span><span class="lang-en hidden-lang">Live Performance</span>
+                </p>
+            </div>
+            <!-- Foto 3: gioclarinet.jpg -->
+            <div class="border border-brand-border p-2 rounded bg-brand-card shadow-sm hover:shadow-md transition duration-300">
+                <img src="gioclarinet.jpg" alt="Clarinet Solo" class="w-full object-cover h-64 rounded-sm">
+                <p class="text-[10px] uppercase font-bold text-brand-muted mt-3 text-center tracking-wider">
+                    <span class="lang-it">Assolo di Clarinetto</span><span class="lang-en hidden-lang">Clarinet Artistry</span>
+                </p>
+            </div>
+            <!-- Foto 4: cami pasticc.jpg -->
+            <div class="border border-brand-border p-2 rounded bg-brand-card shadow-sm hover:shadow-md transition duration-300">
+                <img src="cami pasticc.jpg" alt="Pasticceria Portrait" class="w-full object-cover h-64 rounded-sm">
+                <p class="text-[10px] uppercase font-bold text-brand-muted mt-3 text-center tracking-wider">
+                    <span class="lang-it">Atmosfera Retrò</span><span class="lang-en hidden-lang">Afternoon Radiance</span>
+                </p>
+            </div>
+            <!-- Foto 5: Immagine 24-08-26 - 16.50.jpg -->
+            <div class="border border-brand-border p-2 rounded bg-brand-card shadow-sm hover:shadow-md transition duration-300">
+                <img src="Immagine 24-08-26 - 16.50.jpg" alt="Italian Elegance Portrait" class="w-full object-cover h-64 rounded-sm">
+                <p class="text-[10px] uppercase font-bold text-brand-muted mt-3 text-center tracking-wider">
+                    <span class="lang-it">Dolce Vita</span><span class="lang-en hidden-lang">Sweet Life</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Showcase -->
+    <section class="py-20 bg-brand-card border-y border-brand-border text-center px-6">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-brand-goldDark font-serif italic text-xl block mb-2">Bespoke Experiences</span>
+            <h2 class="font-serif text-3xl md:text-5xl font-medium mb-6 text-brand-text">
+                <span class="lang-it">Disponibili per Eventi di Lusso</span>
+                <span class="lang-en hidden-lang">Available for Luxury Events</span>
+            </h2>
+            <p class="text-brand-muted text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
+                <span class="lang-it">Dai sontuosi castelli della campagna toscana, ai prestigiosi hotel nel centro di Firenze, fino a lussuosi eventi privati internazionali ed italiani. Curiamo l'immagine e l'esecuzione musicale per riflettere un'eleganza senza tempo.</span>
+                <span class="lang-en hidden-lang">From sumptuous castles in the Tuscan countryside to prestigious hotels in the heart of Florence, as well as luxury international and Italian private events. We curate our image and musical execution to reflect a timeless elegance.</span>
+            </p>
+            <div class="flex flex-wrap gap-8 justify-center text-xs tracking-widest text-brand-muted uppercase font-semibold">
+                <span><i class="fa-solid fa-circle-check text-brand-gold mr-1.5"></i> Private Weddings</span>
+                <span><i class="fa-solid fa-circle-check text-brand-gold mr-1.5"></i> Corporate Gala</span>
+                <span><i class="fa-solid fa-circle-check text-brand-gold mr-1.5"></i> Boutique Celebrations</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Spotlight -->
+    <section class="py-20 text-center px-6 bg-brand-bg">
+        <div class="max-w-2xl mx-auto">
+            <i class="fa-brands fa-instagram text-brand-goldDark text-4xl mb-4"></i>
+            <h3 class="font-serif text-3xl font-medium text-brand-text mb-2">
+                <span class="lang-it">Seguici su Instagram</span><span class="lang-en hidden-lang">Follow us on Instagram</span>
+            </h3>
+            <p class="text-brand-muted text-sm mb-6">
+                <span class="lang-it">Guarda i video delle nostre esibizioni live a Firenze e nei contesti più esclusivi.</span>
+                <span class="lang-en hidden-lang">Watch the videos of our live performances in Florence and the most exclusive venues.</span>
+            </p>
+            <a href="https://www.instagram.com/the_swing_band_in_florence_/" target="_blank" class="inline-block bg-brand-card border border-brand-border text-brand-text hover:bg-brand-gold hover:text-brand-bg px-8 py-3 text-xs uppercase tracking-widest font-semibold transition rounded-full shadow-sm">
+                @the_swing_band_in_florence_
+            </a>
+        </div>
+    </section>
+
+    <!-- Preventivo & Contatti Section -->
+    <section id="preventivo" class="py-24 px-6 bg-brand-card border-t border-brand-border">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-goldDark font-serif italic text-xl block mb-2">Get a Quote</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-medium text-brand-text">
+                    <span class="lang-it">Richiedi un Preventivo</span><span class="lang-en hidden-lang">Request a Quote</span>
+                </h2>
+                <p class="text-brand-muted text-xs md:text-sm max-w-lg mx-auto mt-2">
+                    <span class="lang-it">Ogni evento di lusso merita una pianificazione sartoriale. Raccontaci i dettagli del tuo giorno speciale e studieremo la formazione più adatta.</span>
+                    <span class="lang-en hidden-lang">Every luxury event deserves tailored planning. Tell us about your special day and we will study the perfect formation.</span>
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12 items-start">
+                
+                <!-- Info Contatti Rapidi -->
+                <div class="space-y-6 md:col-span-1">
+                    <div class="p-6 bg-brand-bg border border-brand-border rounded-lg shadow-sm">
+                        <span class="text-brand-goldDark text-[10px] uppercase font-bold tracking-wider block mb-4">Direct Contact</span>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-xs font-semibold uppercase text-brand-muted">Camilla</h4>
+                                <a href="tel:+393466054450" class="text-brand-text hover:text-brand-gold font-medium text-sm block mt-0.5">+39 346 605 4450</a>
+                            </div>
+                            <div class="border-t border-brand-border/40 pt-4">
+                                <h4 class="text-xs font-semibold uppercase text-brand-muted">Lorenzo</h4>
+                                <a href="tel:+393282818438" class="text-brand-text hover:text-brand-gold font-medium text-sm block mt-0.5">+39 328 281 8438</a>
+                            </div>
+                            <div class="border-t border-brand-border/40 pt-4">
+                                <h4 class="text-xs font-semibold uppercase text-brand-muted">Email</h4>
+                                <span class="text-brand-muted text-xs italic block mt-0.5">[In attesa di definizione / To be defined]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Richiesta Preventivo -->
+                <form class="md:col-span-2 bg-brand-bg border border-brand-border p-8 rounded-lg shadow-md space-y-6" onsubmit="event.preventDefault(); alert('Grazie! Richiesta inviata con successo. / Thank you! Request sent successfully.');">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <!-- Nome -->
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">
+                                <span class="lang-it">Nome & Cognome *</span><span class="lang-en hidden-lang">Full Name *</span>
+                            </label>
+                            <input type="text" required class="w-full bg-brand-card border border-brand-border text-brand-text px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-gold">
+                        </div>
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">Email *</label>
+                            <input type="email" required class="w-full bg-brand-card border border-brand-border text-brand-text px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-gold">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <!-- Telefono -->
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">
+                                <span class="lang-it">Telefono</span><span class="lang-en hidden-lang">Phone Number</span>
+                            </label>
+                            <input type="tel" class="w-full bg-brand-card border border-brand-border text-brand-text px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-gold">
+                        </div>
+                        <!-- Data dell'Evento -->
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">
+                                <span class="lang-it">Data dell'Evento *</span><span class="lang-en hidden-lang">Event Date *</span>
+                            </label>
+                            <input type="date" required class="w-full bg-brand-card border border-brand-border text-brand-text px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-gold">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <!-- Luogo dell'Evento -->
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">
+                                <span class="lang-it">Luogo dell'Evento *</span><span class="lang-en hidden-lang">Event Location *</span>
+                            </label>
+                            <input type="text" placeholder="Es. Firenze, Chianti, Estero" required class="w-full bg-brand-card border border-brand-border text-brand-text px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-gold placeholder:text-brand-muted/40">
+                        </div>
+                        <!-- Durata del Servizio -->
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">
+                                <span class="lang-it">Durata del servizio musicale *</span><span class="lang-en hidden-lang">Performance Duration *</span>
+                            </label>
+                            <select required class="w-full bg-brand-card border border-brand-border text-brand-text px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-gold">
+                                <option value="">Select...</option>
+                                <option value="solo-aperitivo">Solo Aperitivo / Welcome Cocktail (~2 ore)</option>
+                                <option value="aperitivo-cena">Aperitivo + Cena (~4-5 ore)</option>
+                                <option value="evento-completo">Evento Completo / Full Event (Aperitivo, Cena & Party)</option>
+                                <option value="altro">Altro / Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <!-- Tipo di Evento -->
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">
+                                <span class="lang-it">Tipo di Evento *</span><span class="lang-en hidden-lang">Event Type *</span>
+                            </label>
+                            <select required class="w-full bg-brand-card border border-brand-border text-brand-text px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-gold">
+                                <option value="">Select...</option>
+                                <option value="matrimonio">Matrimonio / Wedding</option>
+                                <option value="gala">Cena di Gala / Gala Dinner</option>
+                                <option value="aziendale">Evento Aziendale / Corporate Event</option>
+                                <option value="party">Festa Privata / Private Party</option>
+                            </select>
+                        </div>
+                        <!-- Formazione Desiderata -->
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">
+                                <span class="lang-it">Formazione Desiderata</span><span class="lang-en hidden-lang">Preferred Line-up</span>
+                            </label>
+                            <select class="w-full bg-brand-card border border-brand-border text-brand-text px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-gold">
+                                <option value="da-consigliare">Da consigliare / Not sure yet</option>
+                                <option value="duo">Duo</option>
+                                <option value="trio">Trio</option>
+                                <option value="quartetto">Quartetto</option>
+                                <option value="quintetto">Quintetto</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Chiamata Conoscitiva -->
+                    <div class="p-4 bg-brand-card border border-brand-border rounded">
+                        <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">
+                            <span class="lang-it">Richiesta Call Conoscitiva</span><span class="lang-en hidden-lang">Planning Consultation Call</span>
+                        </label>
+                        <p class="text-xs text-brand-muted mb-3">
+                            <span class="lang-it">Desideri fare una videochiamata conoscitiva (Zoom/WhatsApp) per approfondire i dettagli organizzativi ed artistici dell'evento?</span>
+                            <span class="lang-en hidden-lang">Would you like to schedule a quick video consultation (Zoom/WhatsApp) to discuss the organizational and artistic details of your event?</span>
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="call_request" value="si" class="accent-brand-gold">
+                                <span class="text-brand-text font-medium">
+                                    <span class="lang-it">Sì, desidero programmare una call</span>
+                                    <span class="lang-en hidden-lang">Yes, let's schedule a call</span>
+                                </span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="call_request" value="no" checked class="accent-brand-gold">
+                                <span class="text-brand-text font-medium">
+                                    <span class="lang-it">No, preferisco via mail</span>
+                                    <span class="lang-en hidden-lang">No, email quotes are fine</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Note e dettagli aggiuntivi -->
+                    <div>
+                        <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-muted mb-2">
+                            <span class="lang-it">Dettagli o richieste particolari</span><span class="lang-en hidden-lang">Additional Details or Song Requests</span>
+                        </label>
+                        <textarea rows="4" placeholder="Es. Location, scaletta, idee speciali... / Venue details, setlist ideas..." class="w-full bg-brand-card border border-brand-border text-brand-text px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-gold placeholder:text-brand-muted/40"></textarea>
+                    </div>
+
+                    <!-- Pulsante Invio -->
+                    <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldDark text-brand-bg font-bold py-4 text-xs uppercase tracking-widest rounded transition shadow-md">
+                        <span class="lang-it">Invia Richiesta Preventivo</span>
+                        <span class="lang-en hidden-lang">Send Quote Request</span>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-card py-12 px-6 border-t border-brand-border text-center text-xs text-brand-muted">
+        <p class="font-serif tracking-widest text-brand-goldDark uppercase font-semibold mb-4 text-sm">La Dolce Vita in Florence</p>
+        <p class="mb-2">Your Swing & Jazz Italian Experience.</p>
+        <div class="flex justify-center gap-4 text-base my-4">
+            <a href="https://www.instagram.com/the_swing_band_in_florence_/" target="_blank" class="hover:text-brand-gold transition"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p class="text-[10px] text-brand-muted/50">&copy; 2026. All rights reserved.</p>
+    </footer>
+
+    <!-- Script per la gestione multilingua IT/EN -->
+    <script>
+        function changeLanguage(lang) {
+            const itElements = document.querySelectorAll('.lang-it');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btnIt = document.getElementById('btn-it');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'it') {
+                itElements.forEach(el => el.classList.remove('hidden-lang'));
+                enElements.forEach(el => el.classList.add('hidden-lang'));
+                btnIt.classList.add('text-brand-goldDark');
+                btnIt.classList.remove('text-brand-muted');
+                btnEn.classList.add('text-brand-muted');
+                btnEn.classList.remove('text-brand-goldDark');
+            } else {
+                itElements.forEach(el => el.classList.add('hidden-lang'));
+                enElements.forEach(el => el.classList.remove('hidden-lang'));
+                btnIt.classList.add('text-brand-muted');
+                btnIt.classList.remove('text-brand-goldDark');
+                btnEn.classList.add('text-brand-goldDark');
+                btnEn.classList.remove('text-brand-muted');
+            }
+            
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        // Caricamento lingua salvata all'avvio
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'it';
+            changeLanguage(savedLang);
+        });
+    </script>
+
+</body>
+</html>
